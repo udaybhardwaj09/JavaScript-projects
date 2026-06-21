@@ -115,3 +115,54 @@
 
 // openFridge(food1,food2,food3,food4);
 // getFood(food1,food2,food3,food4);
+
+
+
+/**********/
+
+// Callbacks = a function that is passed as an argument to another function
+
+// sum(displaySum,1,3);
+
+// function sum(callback,x,y){
+//     let result = x+y;
+//     callback(result);
+// }
+
+// function displaySum(result){
+//     document.getElementById("myId").textContent = result;
+// }
+
+
+/*****************/
+
+// let fruits = ["apple", "banana", "gwava", "kiwi", "avocado"];
+
+// fruits.forEach(capitalize);
+// fruits.forEach(printfruits);
+
+// function printfruits(fruit){
+//     console.log(fruit)
+// }
+
+// function capitalize(fruit,index,fruits){
+//     fruits[index] = fruit.charAt(0).toUpperCase() + fruit.slice(1);
+// }
+
+
+// let nums = [1,2,3,4,5];
+
+// nums.forEach(square);
+// nums.forEach(display);
+
+// function square(num,index,nums){
+//     nums[index] = Math.pow(num,2);
+// }
+
+// function display(num){
+//     console.log(num);
+// }
+
+
+/***********/
+
