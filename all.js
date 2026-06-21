@@ -166,3 +166,41 @@
 
 /***********/
 
+/*
+const students = ["uday", "prakhar", "bhaijaan"];
+let studentUpper = students.map(upperCase);
+let studentLower = students.map(lowerCase);
+console.log(studentUpper);
+console.log(studentLower);
+function upperCase(element){
+    return element.toUpperCase();
+}
+function lowerCase(element){
+    return element.toLowerCase();
+}
+*/
+
+/*
+const dates = ["2024-1-10", "2025-5-12","2026-9-11"];
+let formattedDates = dates.map(formatDates);
+console.log(formattedDates);
+function formatDates(element){
+    let parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`;
+}
+*/
+
+
+/***********/
+
+// .filter() = creates an array by filtering and keeping only TRUE onse
+
+// let numbers = [1,2,3,4,5,6,7,8,9,10];
+
+// let oddnums = numbers.filter(isOdd);
+// console.log(oddnums);
+// function isOdd(element) {
+//     return element%2!==0;
+// }
+
+
