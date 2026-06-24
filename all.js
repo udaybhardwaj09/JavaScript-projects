@@ -204,3 +204,83 @@ function formatDates(element){
 // }
 
 
+/**********/
+
+// const person = {
+//     // key value pairs
+//     Name : "Uday Bhardwaj",
+//     College : "ABES",
+//     Section : "29",
+//     Employed : false,
+//     sayHello: () => {console.log("Hey, I am Uday Bhardwaj...")},
+// }
+
+// console.log(person.Name);
+// console.log(person.College);
+// console.log(person.Employed);
+// person.sayHello();
+
+
+/*************/
+//THIS keyword
+
+// const person = {
+//     name : "Guddu Badmash",
+//     favfood : "Pan Masala",
+//     sayhello : function() {console.log(`hi i am ${this.name}`)},
+//     eat : function () {console.log(`${this.name} is eating ${this.favfood}`)}
+// }
+
+// person.sayhello();
+// person.eat();
+
+
+/**********/
+// constructor = shortcut for objects
+
+// function Car(make,model,year,color){
+//     this.make = make,
+//     this.model = model,
+//     this.year = year,
+//     this.color = color,
+//     this.drive = function(){console.log(`You drive the ${this.model}`)}
+// }
+
+// const car1 = new Car("ford", "mustang", 2024,"red");
+// const car2 = new Car("chevrolet", "camaro", 2025, "blue");
+// const car3 = new Car("dodge", "charger", 2026, "silver");
+
+// car1.drive();
+// car2.drive();
+// car3.drive();
+
+
+
+/*************/
+// CLASSES
+
+// class Product{
+//     constructor(cloth,price){
+//         this.cloth = cloth;
+//         this.price = price;
+//     }
+
+//     displayProduct(){
+//         console.log(`Product: ${this.cloth}`);
+//         console.log(`Price: Rs.${this.price}`);
+//     }
+
+//     calculateTotal(salesTax){
+//         let total = this.price + this.price * salesTax;
+//         console.log(`Total price (with tax): ${total}`);
+//     }
+// }
+// let product1 = new Product("JEANS", 250);
+
+// let salesTax = 0.05
+// product1.displayProduct();
+// product1.calculateTotal(salesTax);
+
+
+/*************/
+
