@@ -259,27 +259,27 @@ function formatDates(element){
 /*************/
 // CLASSES
 
-// class Product{
-//     constructor(cloth,price){
-//         this.cloth = cloth;
-//         this.price = price;
-//     }
+class Product{
+    constructor(cloth,price){
+        this.cloth = cloth;
+        this.price = price;
+    }
 
-//     displayProduct(){
-//         console.log(`Product: ${this.cloth}`);
-//         console.log(`Price: Rs.${this.price}`);
-//     }
+    displayProduct(){
+        console.log(`Product: ${this.cloth}`);
+        console.log(`Price: Rs.${this.price}`);
+    }
 
-//     calculateTotal(salesTax){
-//         let total = this.price + this.price * salesTax;
-//         console.log(`Total price (with tax): ${total}`);
-//     }
-// }
-// let product1 = new Product("JEANS", 250);
+    calculateTotal(salesTax){
+        let total = this.price + this.price * salesTax;
+        console.log(`Total price (with tax): ${total}`);
+    }
+}
+let product1 = new Product("JEANS", 250);
 
-// let salesTax = 0.05
-// product1.displayProduct();
-// product1.calculateTotal(salesTax);
+let salesTax = 0.05
+product1.displayProduct();
+product1.calculateTotal(salesTax);
 
 
 /*************/
