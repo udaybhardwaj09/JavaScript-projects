@@ -259,28 +259,101 @@ function formatDates(element){
 /*************/
 // CLASSES
 
-class Product{
-    constructor(cloth,price){
-        this.cloth = cloth;
-        this.price = price;
-    }
+// class Product{
+//     constructor(cloth,price){
+//         this.cloth = cloth;
+//         this.price = price;
+//     }
 
-    displayProduct(){
-        console.log(`Product: ${this.cloth}`);
-        console.log(`Price: Rs.${this.price}`);
-    }
+//     displayProduct(){
+//         console.log(`Product: ${this.cloth}`);
+//         console.log(`Price: Rs.${this.price}`);
+//     }
 
-    calculateTotal(salesTax){
-        let total = this.price + this.price * salesTax;
-        console.log(`Total price (with tax): ${total}`);
-    }
-}
-let product1 = new Product("JEANS", 250);
+//     calculateTotal(salesTax){
+//         let total = this.price + this.price * salesTax;
+//         console.log(`Total price (with tax): ${total}`);
+//     }
+// }
+// let product1 = new Product("JEANS", 250);
 
-let salesTax = 0.05
-product1.displayProduct();
-product1.calculateTotal(salesTax);
+// let salesTax = 0.05
+// product1.displayProduct();
+// product1.calculateTotal(salesTax);
 
 
 /*************/
+//static
 
+// class MathUtil{
+//     static PI = 3.14159;
+
+//     static getDiameter(radius){
+//         return radius * 2;
+//     }
+
+//     static getCircum(radius){
+//         return 2 * this.PI * radius;
+//     }
+//     static getArea(radius){
+//         return this.PI*radius*radius;
+//     }
+// }
+
+// console.log(MathUtil.PI);
+// console.log(MathUtil.getDiameter(10));
+// console.log(MathUtil.getCircum(10));
+// console.log(MathUtil.getArea(10));
+
+// class User{
+//     static userCount = 0;
+
+//     constructor(username){
+//         this.username = username;
+//         User.userCount++;
+//     }
+
+//     static getUserCount(){
+//         console.log(`there are ${this.userCount} users`);
+//     }
+// }
+
+// const user1 = new User("Uday");
+// const user2 = new User("Nancy");
+
+// console.log(user1.username);
+// console.log(user2.username);
+// console.log(User.userCount);
+
+// User.getUserCount();
+
+
+/************/
+//Inheritance
+
+class Animal{
+    alive = true;
+
+    eat(){
+        console.log(`this ${this.name} is eating`);
+    }
+    sleep(){
+        console.log(`this ${this.name} is sleeping`);
+    }
+}
+class Rabbit extends Animal{
+    name = "rabbit";
+    alive = false;
+}
+class Hawk extends Animal{
+    name = "hawk";
+}
+
+
+const rabbit = new Rabbit();
+rabbit.eat();
+console.log(rabbit.alive);
+
+const hawk = new Hawk();
+hawk.eat();
+hawk.sleep();
