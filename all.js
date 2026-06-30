@@ -540,40 +540,53 @@ function formatDates(element){
 /********************/
 //Nested Objects
 
-class Person{
+// class Person{
 
-    constructor(name, age, ...address){
-        this.name = name;
-        this.age = age;
-        this.address = new Address(...address);
-    }
-}
+//     constructor(name, age, ...address){
+//         this.name = name;
+//         this.age = age;
+//         this.address = new Address(...address);
+//     }
+// }
 
-class Address{
+// class Address{
 
-    constructor(street, city, country){
-        this.street = street;
-        this.city = city;
-        this.country = country;
-    }
-}
+//     constructor(street, city, country){
+//         this.street = street;
+//         this.city = city;
+//         this.country = country;
+//     }
+// }
 
-const person1 = new Person("Spongebob", 30, "124 Conch St.", 
-                                    "Bikini Bottom", 
-                                    "Int. Waters");
+// const person1 = new Person("Spongebob", 30, "124 Conch St.", 
+//                                     "Bikini Bottom", 
+//                                     "Int. Waters");
 
-const person2 = new Person("Patrick", 37, "128 Conch St.", 
-                                    "Bikini Bottom", 
-                                    "Int. Waters");
+// const person2 = new Person("Patrick", 37, "128 Conch St.", 
+//                                     "Bikini Bottom", 
+//                                     "Int. Waters");
 
-const person3 = new Person("Squidward", 45, "126 Conch St.", 
-                                    "Bikini Bottom", 
-                                    "Int. Waters");
+// const person3 = new Person("Squidward", 45, "126 Conch St.", 
+//                                     "Bikini Bottom", 
+//                                     "Int. Waters");
 
 
-console.log(person1.name);
-console.log(person1.age); 
-console.log(person1.address);                                   
-console.log(person1.address.street);
-console.log(person1.address.city);
-console.log(person1.address.country);
+// console.log(person1.name);
+// console.log(person1.age); 
+// console.log(person1.address);                                   
+// console.log(person1.address.street);
+// console.log(person1.address.city);
+// console.log(person1.address.country);
+
+
+/************************/
+//sort() = sorts elements in lexicographic order
+
+// const poeple = [{name: "Uday", age: 30, gpa: 3.0},
+//                 {name: "Ujjwal", age: 50, gpa: 1.0},
+//                 {name: "Ashish", age: 35, gpa: 2.5},
+//                 {name: "Aryan", age: 27, gpa: 4.0}]
+
+// poeple.sort((a,b) => a.gpa - b.gpa);
+// console.log(poeple);
+
