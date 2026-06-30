@@ -590,6 +590,3 @@ function formatDates(element){
 // poeple.sort((a,b) => a.gpa - b.gpa);
 // console.log(poeple);
 
-
-
-// testing repository path
