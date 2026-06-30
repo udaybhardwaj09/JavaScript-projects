@@ -487,41 +487,53 @@ function formatDates(element){
 //DETRUCTURING
 
 //TYPE - 1
-const person1 = {
-  firstName: 'Spongebob',
-  lastName: 'Squarepants',
-  age: 30,
-  job: "Fry cook",
-};
-const person2 = {
-  firstName: 'Patrick',
-  lastName: 'Star',
-  age: 34
-};
-const {firstName, lastName, age, job="Unemployed"} = person2;
+// const person1 = {
+//   firstName: 'Spongebob',
+//   lastName: 'Squarepants',
+//   age: 30,
+//   job: "Fry cook",
+// };
+// const person2 = {
+//   firstName: 'Patrick',
+//   lastName: 'Star',
+//   age: 34
+// };
+// const {firstName, lastName, age, job="Unemployed"} = person2;
 
-console.log(firstName);
-console.log(lastName);
-console.log(age);
-console.log(job);
+// console.log(firstName);
+// console.log(lastName);
+// console.log(age);
+// console.log(job);
 
 //Type - 2
-function displayPerson({firstName, lastName, age, job = "Unemployed"}){
-    console.log(`name:${firstName} ${lastName}`);
-    console.log(`age: ${age}`);
-    console.log(`job:${job}`);
-}
+// function displayPerson({firstName, lastName, age, job = "Unemployed"}){
+//     console.log(`name:${firstName} ${lastName}`);
+//     console.log(`age: ${age}`);
+//     console.log(`job:${job}`);
+// }
 
-const person1 = {
-  firstName: 'Spongebob',
-  lastName: 'Squarepants',
-  age: 30,
-  job: "Fry cook",
-};
-const person2 = {
-  firstName: 'Patrick',
-  lastName: 'Star',
-  age: 34
-};
+// const person1 = {
+//   firstName: 'Spongebob',
+//   lastName: 'Squarepants',
+//   age: 30,
+//   job: "Fry cook",
+// };
+// const person2 = {
+//   firstName: 'Patrick',
+//   lastName: 'Star',
+//   age: 34
+// };
 
-displayPerson(person1);
+// displayPerson(person2);
+
+
+
+//ARRAYS - DESTRUCT.
+
+// SWAP 2 ELEMENTS IN AN ARRAY
+
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+[colors[0], colors[4]] = [colors[4], colors[0]]
+
+console.log(colors);
