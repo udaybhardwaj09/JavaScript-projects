@@ -480,3 +480,48 @@ function formatDates(element){
 // console.log(person.lastName);
 // console.log(person.fullName);
 // console.log(person.age);
+
+
+/****************************/
+
+//DETRUCTURING
+
+//TYPE - 1
+const person1 = {
+  firstName: 'Spongebob',
+  lastName: 'Squarepants',
+  age: 30,
+  job: "Fry cook",
+};
+const person2 = {
+  firstName: 'Patrick',
+  lastName: 'Star',
+  age: 34
+};
+const {firstName, lastName, age, job="Unemployed"} = person2;
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+//Type - 2
+function displayPerson({firstName, lastName, age, job = "Unemployed"}){
+    console.log(`name:${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job:${job}`);
+}
+
+const person1 = {
+  firstName: 'Spongebob',
+  lastName: 'Squarepants',
+  age: 30,
+  job: "Fry cook",
+};
+const person2 = {
+  firstName: 'Patrick',
+  lastName: 'Star',
+  age: 34
+};
+
+displayPerson(person1);
