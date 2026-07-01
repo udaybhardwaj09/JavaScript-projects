@@ -595,11 +595,17 @@ function formatDates(element){
 
 //Dates
 
-const date = new Date();
-console.log(date);
+// const date = new Date();
+// console.log(date);
 
-const year = date.getFullYear();
-const month = date.getMonth();
+// const year = date.getFullYear();
+// const month = date.getMonth();
 
-console.log(year);
-console.log(month);
+// console.log(year);
+// console.log(month);
+
+
+/**************************************/
+
+//Closures
+
