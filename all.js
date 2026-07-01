@@ -590,3 +590,16 @@ function formatDates(element){
 // poeple.sort((a,b) => a.gpa - b.gpa);
 // console.log(poeple);
 
+ 
+/******************************* */
+
+//Dates
+
+const date = new Date();
+console.log(date);
+
+const year = date.getFullYear();
+const month = date.getMonth();
+
+console.log(year);
+console.log(month);
