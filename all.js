@@ -674,41 +674,80 @@ function formatDates(element){
 
 // ---------- getElementById() ----------
 
-const myHeading = document.getElementById("my-heading");
-myHeading.style.backgroundColor = "yellow";
-myHeading.style.textAlign = "center";
+// const myHeading = document.getElementById("my-heading");
+// myHeading.style.backgroundColor = "yellow";
+// myHeading.style.textAlign = "center";
 
-// ---------- getElementsByClassName() ----------
+// // ---------- getElementsByClassName() ----------
 
-const fruits = document.getElementsByClassName("fruits");
+// const fruits = document.getElementsByClassName("fruits");
 
-Array.from(fruits).forEach(fruit => {
-    fruit.style.backgroundColor = "yellow";
-});
+// Array.from(fruits).forEach(fruit => {
+//     fruit.style.backgroundColor = "yellow";
+// });
 
-// ---------- getElementsByTagName() ----------
+// // ---------- getElementsByTagName() ----------
 
-const h4Elements = document.getElementsByTagName("h4");
-const liElements = document.getElementsByTagName("li");
+// const h4Elements = document.getElementsByTagName("h4");
+// const liElements = document.getElementsByTagName("li");
 
-Array.from(h4Elements).forEach(h4Element => {
-    h4Element.style.backgroundColor = "yellow";
-});
+// Array.from(h4Elements).forEach(h4Element => {
+//     h4Element.style.backgroundColor = "yellow";
+// });
 
-Array.from(liElements).forEach(liElement => {
-    liElement.style.backgroundColor = "lightgreen";
-});
+// Array.from(liElements).forEach(liElement => {
+//     liElement.style.backgroundColor = "lightgreen";
+// });
 
-// ---------- querySelector() ----------
+// // ---------- querySelector() ----------
 
-const element = document.querySelector("li");
+// const element = document.querySelector("li");
 
-element.style.backgroundColor = "yellow";
+// element.style.backgroundColor = "yellow";
 
-// ---------- querySelectorAll() ----------
+// // ---------- querySelectorAll() ----------
 
-const foods = document.querySelectorAll("li");
+// const foods = document.querySelectorAll("li");
 
-foods.forEach(food => {
-    food.style.backgroundColor = "yellow"
-});
+// foods.forEach(food => {
+//     food.style.backgroundColor = "yellow"
+// });
+
+
+
+/**********************************/
+
+
+// ---------- .firstElementChild ----------
+
+// const element = document.getElementById("desserts");
+// const firstChild = element.firstElementChild;
+// firstChild.style.backgroundColor = "red";
+
+
+
+// const ulElements = document.querySelectorAll("ul");
+// ulElements.forEach(ulElement => {
+//     const firstChild = ulElement.firstElementChild;
+//     firstChild.style.backgroundColor = "yellow";
+// })
+
+
+//----------- .lastElementChild ----------
+
+// const element = document.getElementById("fruits");
+// const lastChild = element.lastElementChild;
+// lastChild.style.backgroundColor = "yellow";
+
+// const ulElements = document.querySelectorAll("ul");
+// ulElements.forEach(ulElement => {
+//     const lastChild = ulElement.lastElementChild;
+//     lastChild.style.backgroundColor = "yellow";
+// })
+
+
+
+//----------- .nextElementSibling ----------
+//----------- .previousElementSibling ----------
+//----------- .parentElement ----------
+//----------- .children ----------
