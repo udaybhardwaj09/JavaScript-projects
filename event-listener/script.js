@@ -41,33 +41,43 @@
 
 //---------------------------------------//
 
-const emo = document.getElementById("emo");
-const moveAmount = 10;
-let x = 0;
-let y = 0;
+// const emo = document.getElementById("emo");
+// const moveAmount = 10;
+// let x = 0;
+// let y = 0;
 
-document.addEventListener("keydown", event => {
+// document.addEventListener("keydown", (event) => {
+//     emo.textContent = "😣";
+//     emo.style.backgroundColor = "Tomato";
+// })
 
-    if(event.key.startsWith("Arrow")){
+// document.addEventListener("keyup", (event) => {
+//     emo.textContent = "😊";
+//     emo.style.backgroundColor = "lightblue";
+// })
 
-        event.preventDefault();
+// document.addEventListener("keydown", event => {
 
-        switch(event.key){
-            case "ArrowUp":
-                y -= moveAmount;
-                break;
-            case "ArrowDown":
-                y += moveAmount;
-                break;
-            case "ArrowLeft":
-                x -= moveAmount;
-                break;
-            case "ArrowRight":
-                x += moveAmount;
-                break;
-        }
+//     if(event.key.startsWith("Arrow")){
 
-        emo.style.top = `${y}px`;
-        emo.style.left = `${x}px`
-    }
-});
+//         event.preventDefault();
+
+//         switch(event.key){
+//             case "ArrowUp":
+//                 y -= moveAmount;
+//                 break;
+//             case "ArrowDown":
+//                 y += moveAmount;
+//                 break;
+//             case "ArrowLeft":
+//                 x -= moveAmount;
+//                 break;
+//             case "ArrowRight":
+//                 x += moveAmount;
+//                 break;
+//         }
+
+//         emo.style.top = `${y}px`;
+//         emo.style.left = `${x}px`
+//     }
+// });
