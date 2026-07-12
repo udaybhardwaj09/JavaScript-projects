@@ -1,0 +1,26 @@
+#myBox{
+    background-color: lightgreen;
+    font-size: 3.8rem;
+    font-weight: bold;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#myBtn{
+    font-size: 3rem;
+    margin-top: 30px;
+    margin-left: 45px;
+}
+#emo{
+    background-color: lightblue;
+    font-size: 10rem;
+    font-weight: bold;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}

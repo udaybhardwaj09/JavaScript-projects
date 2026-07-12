@@ -757,34 +757,3 @@ function formatDates(element){
 
 /**********************************/
 
-//eventListener = click, mouseover, mouseout;
-
-const myBox = document.getElementById("myBox");
-const myBtn = document.getElementById("myBtn");
-
-// myBox.addEventListener("click", (event) => {
-//     myBox.textContent = "OUCHH!! 😣";
-//     myBox.style.backgroundColor = "Tomato";
-// })
-myBtn.addEventListener("click", (event) => {
-    myBox.textContent = "OUCHH!! 😣";
-    myBox.style.backgroundColor = "Tomato";
-})
-
-// myBox.addEventListener("mouseover", event => {
-//     myBox.textContent = "Dont Do It 😨";
-//     myBox.style.backgroundColor = "yellow";
-// })
-myBtn.addEventListener("mouseover", event => {
-    myBox.textContent = "Dont Do It 😨";
-    myBox.style.backgroundColor = "yellow";
-})
-
-// myBox.addEventListener("mouseout", event => {
-//     myBox.textContent = " Click Me 😊";
-//     myBox.style.backgroundColor = "lightgreen";
-// })
-myBtn.addEventListener("mouseout", event => {
-    myBox.textContent = " Click Me 😊";
-    myBox.style.backgroundColor = "lightgreen";
-})
