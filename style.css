@@ -1,4 +1,4 @@
-#myBox{
+/* #myBox{
     background-color: lightgreen;
     font-size: 3.8rem;
     font-weight: bold;
@@ -12,4 +12,13 @@
     font-size: 3rem;
     margin-top: 30px;
     margin-left: 45px;
+} */
+
+.myButtons{
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: hsl(205, 100%, 60%);
 }

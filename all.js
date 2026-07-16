@@ -757,3 +757,53 @@ function formatDates(element){
 
 /**********************************/
 
+// Node list
+
+let buttons = document.querySelectorAll(".myButtons");
+
+// ADD HTML/CSS PROPERTIES
+
+// buttons.forEach(button => {
+//     button.style.backgroundColor = "green";
+// })
+
+// click event listener
+
+// buttons.forEach(button => {
+//     button.addEventListener("click", event => {
+//         event.target.style.backgroundColor = "tomato";
+//     })
+// })
+
+// MOUSEOVER + MOUSEOUT event listener
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 40%)"
+    })
+})
+
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "hsl(205, 100%, 60%)"
+    })
+})
+
+// ADD AN ELEMENT
+
+const newButton = document.createElement("button"); //STEP-1
+newButton.textContent = "Button 5" //STEP-2
+newButton.classList = "myButtons";
+document.body.appendChild(newButton);
+
+buttons = document.querySelectorAll(".myButtons");
+
+console.log(buttons);
+
+//REMOVE AN ELEMENT 
+
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.remove();
+    });
+})
