@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="navBar">
+        <input type="text" id="searchInput" placeholder="Search city...">
+        <button type="submit" id="searchBtn">&#128269</button>
+        <button class="locationBtn">
+            📍 Current Location
+        </button>
+    </form>
+
+    <div class="weatherMain">
+        <div class="currentWeather">
+            <h2 class="city"></h2>
+
+            <p class="date"></p>
+
+            <h1 class="temperature"></h1>
+
+            <p class="description"></p>
+        </div>
+        
+        <div class="forecast">
+            <p>5 Day Forecast</p>
+            <div class="days">
+                <div>day & date</div>
+                <div>🌧️</div>
+                <div>16°</div>
+                <div>8°</div>
+            </div>
+            <div class="days">
+                <div>day & date</div>
+                <div>🌧️</div>
+                <div>16°</div>
+                <div>8°</div>
+            </div>
+            <div class="days">
+                <div>day & date</div>
+                <div>🌧️</div>
+                <div>16°</div>
+                <div>8°</div>
+            </div>
+            <div class="days">
+                <div>day & date</div>
+                <div>🌧️</div>
+                <div>16°</div>
+                <div>8°</div>
+            </div>
+            <div class="days">
+                <div>day & date</div>
+                <div>🌧️</div>
+                <div>16°</div>
+                <div>8°</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="attributes">
+        <div class="humidity">
+            Humidity 82% 
+        </div>
+        <div class="wind">
+            Wind 12km/h
+        </div>
+        <div class="pressure">
+            Pressure 1025hPa
+        </div>
+        <div class="feelTemp">
+            Feels Like 15°C
+        </div>
+    </div>
+
+    <div id="hourly">
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+        <div class="hour_card">
+            9 PM
+            🌧️
+            10°C
+        </div>
+    </div>
+</body>
+</html>
