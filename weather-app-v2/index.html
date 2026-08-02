@@ -3,121 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <script src="script.js" defer></script>
+    <title>Weather Dashboard</title>
+
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <form class="navBar">
-        <input type="text" id="searchInput" placeholder="Search city...">
-        <button type="submit" id="searchBtn">&#128269</button>
+
+<main class="weatherApp">
+
+    <header class="navBar">
+
+        <input
+            type="text"
+            class="searchInput"
+            placeholder="Search city..."
+        >
+
+        <button class="searchBtn">
+            🔍
+        </button>
+
         <button class="locationBtn">
             📍 Current Location
         </button>
-    </form>
 
-    <div class="weatherMain">
-        <div class="currentWeather">
-            <h2 class="city"></h2>
+    </header>
 
-            <p class="date"></p>
+    <section class="weatherMain">
 
-            <h1 class="temperature"></h1>
+        <section class="currentWeather">
 
-            <p class="description"></p>
-        </div>
-        
-        <div class="forecast">
-            <p>5 Day Forecast</p>
-            <div class="days">
-                <div>day & date</div>
-                <div>🌧️</div>
-                <div>16°</div>
-                <div>8°</div>
+            <p class="city">Delhi, India</p>
+
+            <p class="date">Friday, January 04</p>
+
+            <h1 class="temperature">18°C</h1>
+
+            <p class="description">Stormy</p>
+
+            <p class="highLow">H 29°C • L 15°C</p>
+
+        </section>
+
+        <section class="forecast">
+
+            <h2>5 Day Forecast</h2>
+
+            <div class="forecastList">
+
+                <div class="day">
+                    <p>Fri</p>
+                    <span>🌧️</span>
+                    <p>16°</p>
+                    <p>8°</p>
+                </div>
+
+                <div class="day">
+                    <p>Sat</p>
+                    <span>☁️</span>
+                    <p>15°</p>
+                    <p>7°</p>
+                </div>
+
+                <div class="day">
+                    <p>Sun</p>
+                    <span>🌤️</span>
+                    <p>19°</p>
+                    <p>10°</p>
+                </div>
+
+                <div class="day">
+                    <p>Mon</p>
+                    <span>🌦️</span>
+                    <p>18°</p>
+                    <p>11°</p>
+                </div>
+
+                <div class="day">
+                    <p>Tue</p>
+                    <span>☀️</span>
+                    <p>22°</p>
+                    <p>14°</p>
+                </div>
+
             </div>
-            <div class="days">
-                <div>day & date</div>
-                <div>🌧️</div>
-                <div>16°</div>
-                <div>8°</div>
-            </div>
-            <div class="days">
-                <div>day & date</div>
-                <div>🌧️</div>
-                <div>16°</div>
-                <div>8°</div>
-            </div>
-            <div class="days">
-                <div>day & date</div>
-                <div>🌧️</div>
-                <div>16°</div>
-                <div>8°</div>
-            </div>
-            <div class="days">
-                <div>day & date</div>
-                <div>🌧️</div>
-                <div>16°</div>
-                <div>8°</div>
-            </div>
-        </div>
-    </div>
 
-    <div class="attributes">
-        <div class="humidity">
-            Humidity 82% 
-        </div>
-        <div class="wind">
-            Wind 12km/h
-        </div>
-        <div class="pressure">
-            Pressure 1025hPa
-        </div>
-        <div class="feelTemp">
-            Feels Like 15°C
-        </div>
-    </div>
+        </section>
 
-    <div id="hourly">
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
+    </section>
+
+    <section class="attributes">
+
+        <div class="attributeCard">
+            <p>Humidity</p>
+            <h3 class="humidityValue">82%</h3>
         </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
+
+        <div class="attributeCard">
+            <p>Wind</p>
+            <h3 class="windValue">12 km/h</h3>
         </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
+
+        <div class="attributeCard">
+            <p>Pressure</p>
+            <h3 class="pressureValue">1025 hPa</h3>
         </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
+
+        <div class="attributeCard">
+            <p>Feels Like</p>
+            <h3 class="feelsLikeValue">15°C</h3>
         </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
+
+    </section>
+
+    <section class="hourlyForecast">
+
+        <h2>Hourly Forecast</h2>
+
+        <div class="hourlyCards">
+
+            <div class="hourCard">
+                <p>9 PM</p>
+                <span>🌧️</span>
+                <p>10°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>10 PM</p>
+                <span>🌧️</span>
+                <p>9°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>11 PM</p>
+                <span>☁️</span>
+                <p>9°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>12 AM</p>
+                <span>☁️</span>
+                <p>8°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>1 AM</p>
+                <span>🌙</span>
+                <p>7°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>2 AM</p>
+                <span>🌙</span>
+                <p>7°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>3 AM</p>
+                <span>🌙</span>
+                <p>6°C</p>
+            </div>
+
+            <div class="hourCard">
+                <p>4 AM</p>
+                <span>🌙</span>
+                <p>6°C</p>
+            </div>
+
         </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
-        </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
-        </div>
-        <div class="hour_card">
-            9 PM
-            🌧️
-            10°C
-        </div>
-    </div>
+
+    </section>
+
+</main>
+
 </body>
 </html>
