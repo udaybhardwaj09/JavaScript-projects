@@ -97,3 +97,42 @@ body{
     max-width: 135px;
     margin-top: 20px;
 }
+.forecast{
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    background-color: #1c1f31;
+    padding: 20px 30px;
+}
+#forecastHead{
+    font-size: 1.25rem;
+    padding: 0px 13px;
+}
+.forecastList{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.day{
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 15px;
+}
+.day p{
+    font-size: 1.5rem;
+}
+.day p:first-of-type {
+  font-size: 1.10rem;
+}
+.day span{
+    font-size: 2rem;
+}
+.day span,
+.day p:nth-of-type(2),
+.day p:nth-of-type(3) {
+    text-align: center;
+    justify-self: end;
+}
