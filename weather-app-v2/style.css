@@ -63,3 +63,37 @@ body{
     cursor: pointer;
     justify-self: end;
 }
+.weatherMain{
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+}
+.currentWeather{
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    background-color: #4d5cac;
+    padding: 20px 30px;
+}
+.city{
+    font-size: 1.5rem;
+}
+.date{
+    font-size: 0.85rem;
+    padding: 5px 0px;
+    opacity: 80%;
+}
+.temperature{
+    font-size: 5rem;
+    font-weight: 400;
+    /* padding: 50px 0; */
+    margin-top: 50px;
+}
+.description{
+    font-size: 2.5rem;
+}
+.highLow{
+    border-radius: 10px;
+    background-color: #ffffff46;
+    padding: 10px;
+    max-width: 135px;
+    margin-top: 20px;
+}
