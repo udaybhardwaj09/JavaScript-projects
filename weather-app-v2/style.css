@@ -153,4 +153,31 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #1c1f31;
+}
+.hourlyForecast{
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 20px 30px;
+}
+#hourlyHead{
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+.hourlyCards{
+    display: flex;
+    padding: 20px 0;
+    gap: 20px;
+}
+.hourCard{
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+
+    flex: 1;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1c1f31;
 }
