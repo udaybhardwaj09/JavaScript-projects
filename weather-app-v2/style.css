@@ -218,24 +218,81 @@ body{
     color: #5da0ff;
 }
 .attributes{
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 20px 30px;
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    gap: 18px;
+
+    padding: 18px;
+
     margin-bottom: 20px;
-}
-.attributeCard{
-    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
+
+    background: rgba(18, 24, 42, 0.45);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.attributeCard{
+    position: relative;
+    overflow: hidden;
+
     flex: 1;
-    min-height: 150px;
+
+    min-height: 155px;
+
+    padding: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.015)
+        );
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
-    justify-content: space-evenly;
-    background-color: #1c1f31;
+    justify-content: center;
+
+    gap: 12px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.attributeCard:hover{
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+}
+
+
+.attributeCard p{
+    font-size: 1rem;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+.attributeCard h3{
+    font-size: 1.7rem;
+
+    font-weight: 400;
+
+    letter-spacing: -0.5px;
 }
 .hourlyForecast{
     border: 1px solid rgba(255, 255, 255, 0.15);
