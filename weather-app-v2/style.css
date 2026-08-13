@@ -295,28 +295,86 @@ body{
     letter-spacing: -0.5px;
 }
 .hourlyForecast{
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 20px 30px;
-}
-#hourlyHead{
-    font-size: 1.75rem;
-    font-weight: 500;
-}
-.hourlyCards{
-    display: flex;
-    padding: 20px 0;
-    gap: 20px;
-}
-.hourCard{
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
 
+    padding: 22px 24px;
+
+    background: rgba(18, 24, 42, 0.45);
+
+    backdrop-filter: blur(12px);
+}
+
+
+#hourlyHead{
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    margin-bottom: 5px;
+}
+
+
+.hourlyCards{
+    display: flex;
+
+    gap: 0;
+
+    padding: 12px 0 0;
+}
+
+
+.hourCard{
+    position: relative;
+
     flex: 1;
-    min-height: 150px;
+
+    min-height: 135px;
+
+    padding: 12px 8px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: transparent;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1c1f31;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.hourCard + .hourCard{
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.hourCard:hover{
+    background: rgba(255, 255, 255, 0.05);
+
+    transform: translateY(-2px);
+}
+
+
+.hourCard p:first-child{
+    font-size: 0.9rem;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+.hourCard span{
+    font-size: 1.9rem;
+}
+
+
+.hourCard p:last-child{
+    font-size: 1.15rem;
+
+    font-weight: 400;
 }
