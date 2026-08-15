@@ -43,6 +43,12 @@ function formatDate(){
 
 }
 
+function formatDescription(description){
+
+    return description.split(" ").map(word => word[0].toUpperCase() + word.slice(1)).join(" ");
+
+}
+
 searchBtn.addEventListener("click", async () => {
 
     const city = searchInput.value;
@@ -50,12 +56,13 @@ searchBtn.addEventListener("click", async () => {
     if(city){
         try{
             const weatherData = await getWeatherData(city);
+            console.log(weatherData);
             
             cityDisplay.textContent = weatherData.name;
 
             temperatureDisplay.textContent = `${weatherData.main.temp.toFixed(0)}°C`;
 
-            descriptionDisplay.textContent = weatherData.weather[0].description;
+            descriptionDisplay.textContent = formatDescription(weatherData.weather[0].description);
 
             dateDisplay.textContent = formatDate();
 
@@ -63,7 +70,7 @@ searchBtn.addEventListener("click", async () => {
 
             humidityDisplay.textContent = `${weatherData.main.humidity}%`;
 
-            windDisplay.textContent = `${weatherData.wind.speed} m/s`;
+            windDisplay.textContent = `${(weatherData.wind.speed * 3.6).toFixed(1)} km/h`;
 
             pressureDisplay.textContent = `${weatherData.main.pressure} hPa`;
 
