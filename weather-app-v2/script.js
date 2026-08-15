@@ -14,21 +14,71 @@ const windDisplay = document.querySelector(".windValue");
 const pressureDisplay = document.querySelector(".pressureValue");
 const feelsLikeDisplay = document.querySelector(".feelsLikeValue");
 
+const forecastDays = document.querySelectorAll(".day");
+
 
 async function getWeatherData(city){
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
     const response = await fetch(apiUrl);
 
     if(!response.ok){
 
         const errorData = await response.json();
         throw new Error(errorData.message);
-
+    
     }
-
     return await response.json();
+}
+
+async function getForecastData(city){
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    const response = await fetch(apiUrl);
+
+    if(!response.ok){
+        throw new Error("Could not fetch forecast data");
+    }
+    return await response.json();
+}
+
+function processForecastData(forecastList){
+
+    const dailyForecast = {};
+
+    forecastList.forEach(item => {
+
+        const date = item.dt_txt.split(" ")[0];
+
+        if(!dailyForecast[date]){
+
+            dailyForecast[date] = {
+                high: item.main.temp_max,
+                low: item.main.temp_min,
+                weather: item.weather[0].description
+            };
+
+        }
+        else{
+
+            dailyForecast[date].high =
+                Math.max(
+                    dailyForecast[date].high,
+                    item.main.temp_max
+                );
+
+            dailyForecast[date].low =
+                Math.min(
+                    dailyForecast[date].low,
+                    item.main.temp_min
+                );
+
+        }
+
+    });
+
+    return dailyForecast;
+
 }
 
 function formatDate(){
@@ -56,8 +106,12 @@ searchBtn.addEventListener("click", async () => {
     if(city){
         try{
             const weatherData = await getWeatherData(city);
-            console.log(weatherData);
+            const forecastData = await getForecastData(city);
+            const dailyForecast = processForecastData(forecastData.list);
+
+            console.log(dailyForecast);
             
+
             cityDisplay.textContent = weatherData.name;
 
             temperatureDisplay.textContent = `${weatherData.main.temp.toFixed(0)}°C`;
