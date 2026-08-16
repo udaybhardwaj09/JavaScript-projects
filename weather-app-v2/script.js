@@ -16,6 +16,8 @@ const feelsLikeDisplay = document.querySelector(".feelsLikeValue");
 
 const forecastDays = document.querySelectorAll(".day");
 
+const hourlyCards = document.querySelectorAll(".hourCard");
+
 
 async function getWeatherData(city){
 
@@ -151,6 +153,37 @@ function displayForecast(dailyForecast){
 
 }
 
+function displayHourlyForecast(forecastList){
+
+    hourlyCards.forEach((card, index) => {
+
+        const forecast = forecastList[index];
+
+        if(!forecast){
+            return;
+        }
+
+        const time = new Date(forecast.dt * 1000);
+
+        const formattedTime = time.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            hour12: true
+        });
+
+        const temperature = `${forecast.main.temp.toFixed(0)}°C`;
+
+        const weatherIcon = getWeatherEmoji(forecast.weather[0].id);
+
+        card.children[0].textContent = formattedTime;
+
+        card.children[1].textContent = weatherIcon;
+
+        card.children[2].textContent = temperature;
+
+    });
+
+}
+
 function formatDate(){
 
     const today = new Date();
@@ -182,6 +215,7 @@ searchBtn.addEventListener("click", async () => {
             const todayForecast = dailyForecast[today];
 
             displayForecast(dailyForecast);
+            displayHourlyForecast(forecastData.list);
             
 
             cityDisplay.textContent = weatherData.name;
