@@ -232,52 +232,92 @@ function formatDescription(description){
 
 }
 
+async function displayWeather(city){
+
+    const weatherData = await getWeatherData(city);
+
+    const forecastData = await getForecastData(city);
+
+    const dailyForecast =
+        processForecastData(forecastData.list);
+
+    const today =
+        new Date().toISOString().split("T")[0];
+
+    const todayForecast =
+        dailyForecast[today];
+
+    const weatherId =
+        weatherData.weather[0].id;
+
+    cityDisplay.textContent =
+        weatherData.name;
+
+    temperatureDisplay.textContent =
+        `${weatherData.main.temp.toFixed(0)}°C`;
+
+    descriptionDisplay.textContent =
+        formatDescription(weatherData.weather[0].description);
+
+    dateDisplay.textContent =
+        formatDate();
+
+    if(todayForecast){
+
+        highLowDisplay.textContent =
+            `H ${todayForecast.high.toFixed(0)}°C • L ${todayForecast.low.toFixed(0)}°C`;
+
+    }
+
+    humidityDisplay.textContent =
+        `${weatherData.main.humidity}%`;
+
+    windDisplay.textContent =
+        `${(weatherData.wind.speed * 3.6).toFixed(1)} km/h`;
+
+    pressureDisplay.textContent =
+        `${weatherData.main.pressure} hPa`;
+
+    feelsLikeDisplay.textContent =
+        `${weatherData.main.feels_like.toFixed(0)}°C`;
+
+    displayForecast(dailyForecast);
+
+    displayHourlyForecast(forecastData.list);
+
+    const backgroundImage =
+        getWeatherBackground(weatherId);
+
+    currentWeatherCard.style.backgroundImage =
+        `linear-gradient(
+            90deg,
+            rgba(5, 10, 22, 0.72) 0%,
+            rgba(5, 10, 22, 0.42) 50%,
+            rgba(5, 10, 22, 0.18) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5, 10, 22, 0.45) 0%,
+            transparent 45%
+        ),
+        url("${backgroundImage}")`;
+
+}
+
 searchBtn.addEventListener("click", async () => {
 
-    const city = searchInput.value;
+    const city = searchInput.value.trim();
 
-    if(city){
-        try{
-            const weatherData = await getWeatherData(city);
-            const weatherId = weatherData.weather[0].id;
-            const forecastData = await getForecastData(city);
-            const dailyForecast = processForecastData(forecastData.list);
-            const today = new Date().toISOString().split("T")[0];
-            const todayForecast = dailyForecast[today];
+    if(!city){
+        return;
+    }
 
-            displayForecast(dailyForecast);
-            displayHourlyForecast(forecastData.list);
-            
-
-            cityDisplay.textContent = weatherData.name;
-
-            temperatureDisplay.textContent = `${weatherData.main.temp.toFixed(0)}°C`;
-
-            descriptionDisplay.textContent = formatDescription(weatherData.weather[0].description);
-
-            dateDisplay.textContent = formatDate();
-
-            if(todayForecast){
-                highLowDisplay.textContent = `H ${todayForecast.high.toFixed(0)}°C • L ${todayForecast.low.toFixed(0)}°C`;
-            }
-
-            humidityDisplay.textContent = `${weatherData.main.humidity}%`;
-
-            windDisplay.textContent = `${(weatherData.wind.speed * 3.6).toFixed(1)} km/h`;
-
-            pressureDisplay.textContent = `${weatherData.main.pressure} hPa`;
-
-            feelsLikeDisplay.textContent = `${weatherData.main.feels_like.toFixed(0)}°C`;
-
-            const backgroundImage = getWeatherBackground(weatherId);
-
-            currentWeatherCard.style.backgroundImage = `linear-gradient(90deg, rgba(5, 10, 22, 0.72) 0%, rgba(5, 10, 22, 0.42) 50%,rgba(5, 10, 22, 0.18) 100%), linear-gradient(0deg, rgba(5, 10, 22, 0.45) 0%, transparent 45%), 
-            url("${backgroundImage}")`;
-        }
-
-        catch(error){
-            console.error(error);
-        }
+    try {
+        await displayWeather(city);
+    }
+    
+    catch(error) {
+        console.error(error);
     }
 });
 
