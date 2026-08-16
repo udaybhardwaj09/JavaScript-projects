@@ -53,6 +53,7 @@ function processForecastData(forecastList){
         if(!dailyForecast[date]){
 
             dailyForecast[date] = {
+                date: date,
                 high: item.main.temp_max,
                 low: item.main.temp_min,
                 weather: item.weather[0].description
@@ -78,6 +79,40 @@ function processForecastData(forecastList){
     });
 
     return dailyForecast;
+
+}
+
+function displayForecast(dailyForecast){
+
+    const dates = Object.keys(dailyForecast);
+
+    const today = new Date().toISOString().split("T")[0];
+
+    const futureDates = dates.filter(date => date > today);
+
+    forecastDays.forEach((day, index) => {
+
+        const date = futureDates[index];
+
+        if(!date){
+            return;
+        }
+
+        const forecast = dailyForecast[date];
+
+        const dayName = new Date(date).toLocaleDateString("en-US", {
+            weekday: "long"
+        });
+
+        day.children[0].textContent = dayName;
+
+        day.children[2].textContent =
+            `${forecast.high.toFixed(0)}°`;
+
+        day.children[3].textContent =
+            `${forecast.low.toFixed(0)}°`;
+
+    });
 
 }
 
@@ -108,8 +143,10 @@ searchBtn.addEventListener("click", async () => {
             const weatherData = await getWeatherData(city);
             const forecastData = await getForecastData(city);
             const dailyForecast = processForecastData(forecastData.list);
+            const today = new Date().toISOString().split("T")[0];
+            const todayForecast = dailyForecast[today];
 
-            console.log(dailyForecast);
+            displayForecast(dailyForecast);
             
 
             cityDisplay.textContent = weatherData.name;
@@ -120,7 +157,9 @@ searchBtn.addEventListener("click", async () => {
 
             dateDisplay.textContent = formatDate();
 
-            highLowDisplay.textContent = `H ${weatherData.main.temp_max.toFixed(0)}°C • L ${weatherData.main.temp_min.toFixed(0)}°C`;
+            if(todayForecast){
+                highLowDisplay.textContent = `H ${todayForecast.high.toFixed(0)}°C • L ${todayForecast.low.toFixed(0)}°C`;
+            }
 
             humidityDisplay.textContent = `${weatherData.main.humidity}%`;
 
