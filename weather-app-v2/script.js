@@ -3,6 +3,7 @@
 const searchInput = document.querySelector(".searchInput");
 const searchBtn = document.querySelector(".searchBtn");
 
+const currentWeatherCard = document.querySelector(".currentWeather");
 const cityDisplay = document.querySelector(".city");
 const dateDisplay = document.querySelector(".date");
 const temperatureDisplay = document.querySelector(".temperature");
@@ -115,6 +116,35 @@ function getWeatherEmoji(weatherId){
     }
 }
 
+function getWeatherBackground(weatherId){
+
+    if(weatherId >= 200 && weatherId < 300){
+        return "images/stormy.jpg";
+    }
+
+    if(weatherId >= 300 && weatherId < 600){
+        return "images/rainy.jpg";
+    }
+
+    if(weatherId >= 600 && weatherId < 700){
+        return "images/snowy.jpg";
+    }
+
+    if(weatherId >= 700 && weatherId < 800){
+        return "images/mist.jpg";
+    }
+
+    if(weatherId === 800){
+        return "images/clear.jpg";
+    }
+
+    if(weatherId > 800 && weatherId < 900){
+        return "images/cloudy2.jpg";
+    }
+
+    return "images/cloudy2.jpg";
+}
+
 function displayForecast(dailyForecast){
 
     const dates = Object.keys(dailyForecast);
@@ -209,6 +239,7 @@ searchBtn.addEventListener("click", async () => {
     if(city){
         try{
             const weatherData = await getWeatherData(city);
+            const weatherId = weatherData.weather[0].id;
             const forecastData = await getForecastData(city);
             const dailyForecast = processForecastData(forecastData.list);
             const today = new Date().toISOString().split("T")[0];
@@ -237,6 +268,11 @@ searchBtn.addEventListener("click", async () => {
             pressureDisplay.textContent = `${weatherData.main.pressure} hPa`;
 
             feelsLikeDisplay.textContent = `${weatherData.main.feels_like.toFixed(0)}°C`;
+
+            const backgroundImage = getWeatherBackground(weatherId);
+
+            currentWeatherCard.style.backgroundImage = `linear-gradient(90deg, rgba(5, 10, 22, 0.72) 0%, rgba(5, 10, 22, 0.42) 50%,rgba(5, 10, 22, 0.18) 100%), linear-gradient(0deg, rgba(5, 10, 22, 0.45) 0%, transparent 45%), 
+            url("${backgroundImage}")`;
         }
 
         catch(error){

@@ -99,7 +99,7 @@ body{
         url("images/stormy.jpg");
 
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
 
     box-shadow:
         inset 0 0 60px rgba(0, 0, 0, 0.20);
