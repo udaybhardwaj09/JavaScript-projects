@@ -56,7 +56,8 @@ function processForecastData(forecastList){
                 date: date,
                 high: item.main.temp_max,
                 low: item.main.temp_min,
-                weather: item.weather[0].description
+                weather: item.weather[0].description,
+                weatherId: item.weather[0].id
             };
 
         }
@@ -82,6 +83,36 @@ function processForecastData(forecastList){
 
 }
 
+function getWeatherEmoji(weatherId){
+
+    switch(true){
+
+        case weatherId >= 200 && weatherId < 300:
+            return "⛈️";
+
+        case weatherId >= 300 && weatherId < 400:
+            return "🌦️";
+
+        case weatherId >= 500 && weatherId < 600:
+            return "🌧️";
+
+        case weatherId >= 600 && weatherId < 700:
+            return "❄️";
+
+        case weatherId >= 700 && weatherId < 800:
+            return "🌫️";
+
+        case weatherId === 800:
+            return "☀️";
+
+        case weatherId > 800 && weatherId < 900:
+            return "☁️";
+
+        default:
+            return "❓";
+    }
+}
+
 function displayForecast(dailyForecast){
 
     const dates = Object.keys(dailyForecast);
@@ -100,11 +131,15 @@ function displayForecast(dailyForecast){
 
         const forecast = dailyForecast[date];
 
+        const weatherIcon = getWeatherEmoji(forecast.weatherId);
+
         const dayName = new Date(date).toLocaleDateString("en-US", {
             weekday: "long"
         });
 
         day.children[0].textContent = dayName;
+
+        day.children[1].textContent = weatherIcon;
 
         day.children[2].textContent =
             `${forecast.high.toFixed(0)}°`;
