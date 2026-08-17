@@ -2,6 +2,7 @@
 
 const searchInput = document.querySelector(".searchInput");
 const searchBtn = document.querySelector(".searchBtn");
+const locationBtn = document.querySelector(".locationBtn");
 
 const currentWeatherCard = document.querySelector(".currentWeather");
 const cityDisplay = document.querySelector(".city");
@@ -35,6 +36,38 @@ async function getWeatherData(city){
     return await response.json();
 }
 
+async function getWeatherByCoordinates(latitude, longitude){
+
+    const apiUrl =
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    const response = await fetch(apiUrl);
+
+    if(!response.ok){
+
+        throw new Error("Could not fetch location weather");
+
+    }
+
+    return await response.json();
+
+}
+
+async function getForecastByCoordinates(latitude, longitude){
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    const response = await fetch(apiUrl);
+
+    if(!response.ok){
+
+        throw new Error("Could not fetch location forecast");
+
+    }
+
+    return await response.json();
+
+}
 
 async function getForecastData(city){
 
@@ -250,14 +283,7 @@ function formatDescription(description){
 
 }
 
-
-async function displayWeather(city){
-
-    const weatherData =
-        await getWeatherData(city);
-
-    const forecastData =
-        await getForecastData(city);
+function updateWeatherUI(weatherData, forecastData){
 
     const dailyForecast =
         processForecastData(forecastData.list);
@@ -267,10 +293,6 @@ async function displayWeather(city){
 
     const todayForecast =
         dailyForecast[today];
-
-    // TEMPORARY DEBUGGING
-    console.log("TODAY:", today);
-    console.log("TODAY FORECAST:", todayForecast);
 
     const weatherId =
         weatherData.weather[0].id;
@@ -331,6 +353,29 @@ async function displayWeather(city){
 
 }
 
+async function displayWeather(city){
+
+    const weatherData =
+        await getWeatherData(city);
+
+    const forecastData =
+        await getForecastData(city);
+
+    updateWeatherUI(weatherData, forecastData);
+
+}
+
+async function displayWeatherByCoordinates(latitude, longitude){
+
+    const weatherData =
+        await getWeatherByCoordinates(latitude, longitude);
+
+    const forecastData =
+        await getForecastByCoordinates(latitude, longitude);
+
+    updateWeatherUI(weatherData, forecastData);
+
+}
 
 searchBtn.addEventListener("click", async () => {
 
@@ -352,5 +397,32 @@ searchBtn.addEventListener("click", async () => {
         console.error(error);
 
     }
+
+});
+
+locationBtn.addEventListener("click", () => {
+
+    navigator.geolocation.getCurrentPosition(
+
+        position => {
+
+            const latitude = position.coords.latitude;
+
+            const longitude = position.coords.longitude;
+
+            displayWeatherByCoordinates(latitude,longitude)
+            .catch(error => {
+                console.error(error);
+            });
+
+        },
+
+        error => {
+
+            console.error(error);
+
+        }
+
+    );
 
 });
