@@ -31,8 +31,10 @@ async function getWeatherData(city){
         throw new Error(errorData.message);
     
     }
+
     return await response.json();
 }
+
 
 async function getForecastData(city){
 
@@ -42,8 +44,10 @@ async function getForecastData(city){
     if(!response.ok){
         throw new Error("Could not fetch forecast data");
     }
+
     return await response.json();
 }
+
 
 function processForecastData(forecastList){
 
@@ -64,6 +68,7 @@ function processForecastData(forecastList){
             };
 
         }
+
         else{
 
             dailyForecast[date].high =
@@ -85,6 +90,7 @@ function processForecastData(forecastList){
     return dailyForecast;
 
 }
+
 
 function getWeatherEmoji(weatherId){
 
@@ -114,7 +120,9 @@ function getWeatherEmoji(weatherId){
         default:
             return "❓";
     }
+
 }
+
 
 function getWeatherBackground(weatherId){
 
@@ -143,7 +151,9 @@ function getWeatherBackground(weatherId){
     }
 
     return "images/cloudy2.jpg";
+
 }
+
 
 function displayForecast(dailyForecast){
 
@@ -183,6 +193,7 @@ function displayForecast(dailyForecast){
 
 }
 
+
 function displayHourlyForecast(forecastList){
 
     hourlyCards.forEach((card, index) => {
@@ -200,9 +211,11 @@ function displayHourlyForecast(forecastList){
             hour12: true
         });
 
-        const temperature = `${forecast.main.temp.toFixed(0)}°C`;
+        const temperature =
+            `${forecast.main.temp.toFixed(0)}°C`;
 
-        const weatherIcon = getWeatherEmoji(forecast.weather[0].id);
+        const weatherIcon =
+            getWeatherEmoji(forecast.weather[0].id);
 
         card.children[0].textContent = formattedTime;
 
@@ -213,6 +226,7 @@ function displayHourlyForecast(forecastList){
     });
 
 }
+
 
 function formatDate(){
 
@@ -226,17 +240,24 @@ function formatDate(){
 
 }
 
+
 function formatDescription(description){
 
-    return description.split(" ").map(word => word[0].toUpperCase() + word.slice(1)).join(" ");
+    return description
+        .split(" ")
+        .map(word => word[0].toUpperCase() + word.slice(1))
+        .join(" ");
 
 }
 
+
 async function displayWeather(city){
 
-    const weatherData = await getWeatherData(city);
+    const weatherData =
+        await getWeatherData(city);
 
-    const forecastData = await getForecastData(city);
+    const forecastData =
+        await getForecastData(city);
 
     const dailyForecast =
         processForecastData(forecastData.list);
@@ -246,6 +267,10 @@ async function displayWeather(city){
 
     const todayForecast =
         dailyForecast[today];
+
+    // TEMPORARY DEBUGGING
+    console.log("TODAY:", today);
+    console.log("TODAY FORECAST:", todayForecast);
 
     const weatherId =
         weatherData.weather[0].id;
@@ -257,7 +282,9 @@ async function displayWeather(city){
         `${weatherData.main.temp.toFixed(0)}°C`;
 
     descriptionDisplay.textContent =
-        formatDescription(weatherData.weather[0].description);
+        formatDescription(
+            weatherData.weather[0].description
+        );
 
     dateDisplay.textContent =
         formatDate();
@@ -304,20 +331,26 @@ async function displayWeather(city){
 
 }
 
+
 searchBtn.addEventListener("click", async () => {
 
-    const city = searchInput.value.trim();
+    const city =
+        searchInput.value.trim();
 
     if(!city){
         return;
     }
 
     try {
-        await displayWeather(city);
-    }
-    
-    catch(error) {
-        console.error(error);
-    }
-});
 
+        await displayWeather(city);
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+    }
+
+});
