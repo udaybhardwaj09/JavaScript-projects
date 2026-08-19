@@ -3,6 +3,10 @@
 const searchInput = document.querySelector(".searchInput");
 const searchBtn = document.querySelector(".searchBtn");
 const locationBtn = document.querySelector(".locationBtn");
+const apiKey = API_KEY;
+
+const welcomeScreen = document.querySelector(".welcomeScreen");
+const weatherApp = document.querySelector(".weatherApp");
 
 const currentWeatherCard = document.querySelector(".currentWeather");
 const cityDisplay = document.querySelector(".city");
@@ -283,6 +287,15 @@ function formatDescription(description){
 
 }
 
+function showDashboard(){
+
+    welcomeScreen.style.display = "none";
+    document.querySelector(".weatherMain").style.display = "grid";
+    document.querySelector(".attributes").style.display = "flex";
+    document.querySelector(".hourlyForecast").style.display = "block"
+
+}
+
 function updateWeatherUI(weatherData, forecastData){
 
     const dailyForecast =
@@ -362,6 +375,7 @@ async function displayWeather(city){
         await getForecastData(city);
 
     updateWeatherUI(weatherData, forecastData);
+    showDashboard();
 
 }
 
@@ -374,6 +388,7 @@ async function displayWeatherByCoordinates(latitude, longitude){
         await getForecastByCoordinates(latitude, longitude);
 
     updateWeatherUI(weatherData, forecastData);
+    showDashboard();
 
 }
 
