@@ -67,35 +67,64 @@ body{
     display: grid;
     grid-template-columns: 6fr 4fr;
 }
-.currentWeather{
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    background-color: #4d5cac;
-    padding: 20px 30px;
+.currentWeather {
+    min-height: 390px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+
+    padding: 30px 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: relative;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
-.city{
+.city {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.date {
+    font-size: 0.9rem;
+    opacity: 0.65;
+    margin-bottom: 18px;
+}
+
+.temperature {
+    font-size: 5.8rem;
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.description {
     font-size: 1.5rem;
-}
-.date{
-    font-size: 0.85rem;
-    padding: 5px 0px;
-    opacity: 80%;
-}
-.temperature{
-    font-size: 5rem;
     font-weight: 400;
-    /* padding: 50px 0; */
-    margin-top: 50px;
+    margin-top: 12px;
+    opacity: 0.9;
 }
-.description{
-    font-size: 2.5rem;
-}
-.highLow{
-    border-radius: 10px;
-    background-color: #ffffff46;
-    padding: 10px;
-    max-width: 135px;
-    margin-top: 20px;
+
+.highLow {
+    width: fit-content;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    padding: 9px 14px;
+    margin-top: 18px;
+
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
 }
 .forecast{
     border: 1px solid rgba(255, 255, 255, 0.15);
